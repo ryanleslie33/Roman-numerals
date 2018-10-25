@@ -3,45 +3,48 @@ var answer = [];
 
 function masterConvert(input) {
   if(input <= 3) {
-    return underFive(input);
+    return oneThruFour(input);
   } else if(input >3 && input <= 5) {
-    return fours(input);
+    return fourAndFive(input);
   } else if (input < 9 && input >= 5) {
-    return eight(input);
+    return sixThruEight(input);
   } else {
     return "Sorry, answer eludes us";
   }
 }
 
 
-function underFive(input) {
-  var singleDigitArray = [];
+function oneThruFour(input) {
+  var functionArray = [];
   if(input <= 3) {
     for(var i =1; i <= input; i++) {
-      singleDigitArray.push("I");
+      functionArray.push("I");
     }
-    return singleDigitArray.slice().join("");
+    return functionArray.slice().join("");
   }
 
 }
 
-function fours(input) {
-  var singleDigitArray = ['V'];
+function fourAndFive(input) {
+  var functionArray = ['V'];
   if(input >3 && input <= 5){
-  return singleDigitArray.slice().join("");
-  else  if ( i = 1; i< 5; i++){
-    return  singleDigitArray.unshift("I");
+    for(var i =1; i <= (5 - input); i++)
+      functionArray.unshift("I");
     }
-}
+      return functionArray.slice().join("");
+
 }
 
-function eight(input) {
-  var singleDigitArray = ['V'];
+
+
+
+function sixThruEight(input) {
+  var functionArray = ['V'];
   if(input < 9 && input >= 5)
     for(var i = 1; i<= (input - 5); i++) {
-      singleDigitArray.push("I");
+      functionArray.push("I");
     }
-    return singleDigitArray.slice().join("");
+    return functionArray.slice().join("");
 
 }
 
