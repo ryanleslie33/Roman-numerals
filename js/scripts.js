@@ -10,11 +10,12 @@ function masterConvert(input) {
     return sixThruEight(input);
   } else if (input > 8 && input <= 10) {
     return nineAndten(input);
+  } else if (input > 10 || input <= 50) {
+    return tenToNinety(input);
   } else {
     return "Sorry, answer eludes us";
   }
 }
-
 
 function oneThruFour(input) {
   var functionArray = [];
@@ -24,7 +25,6 @@ function oneThruFour(input) {
     }
     return functionArray.slice().join("");
   }
-
 }
 
 function fourAndFive(input) {
@@ -34,7 +34,6 @@ function fourAndFive(input) {
       functionArray.unshift("I");
     }
       return functionArray.slice().join("");
-
 }
 
 function sixThruEight(input) {
@@ -44,7 +43,6 @@ function sixThruEight(input) {
       functionArray.push("I");
     }
     return functionArray.slice().join("");
-
 }
 
 function nineAndten(input) {
@@ -57,18 +55,52 @@ function nineAndten(input) {
   }
 }
 
+function tenToNinety(input) {
+  var tensPlace = input.split("").slice(0,1);
+  var onesPlace = input.split("").slice(1);
+  switch (tensPlace.join()) {
+
+    case "2":
+    tensPlace = "XX";
+    break;
+
+    case "3":
+    tensPlace = "XXX";
+    break;
+
+    case "4":
+    tensPlace = "XL";
+    break;
+
+    case "5":
+    tensPlace = "L";
+    break;
+
+    case "6":
+    tensPlace = "LX";
+    break;
+
+    case "7":
+    tensPlace = "LXX";
+    break;
+
+    case "8":
+    tensPlace = "LXXX";
+    break;
+
+    case "9":
+    tensPlace = "XC";
+    break;
+
+    default:
+    }
+    onesPlace = masterConvert(onesPlace);
+    return(tensPlace + onesPlace);
+  }
 
 
 
-
-
-
-
-
-
-
-
-
+// client-side code:
 $(document).ready(function(){
   $("#translater").submit(function(event){
     event.preventDefault();
