@@ -8,6 +8,8 @@ function masterConvert(input) {
     return fourAndFive(input);
   } else if (input < 9 && input >= 5) {
     return sixThruEight(input);
+  } else if (input > 8 && input <= 10) {
+    return nineAndten(input);
   } else {
     return "Sorry, answer eludes us";
   }
@@ -35,9 +37,6 @@ function fourAndFive(input) {
 
 }
 
-
-
-
 function sixThruEight(input) {
   var functionArray = ['V'];
   if(input < 9 && input >= 5)
@@ -48,6 +47,15 @@ function sixThruEight(input) {
 
 }
 
+function nineAndten(input) {
+  var functionArray = ['X'];
+  if(input > 8 && input <= 10) {
+    for(var i = 1; i <= (10 -input); i++) {
+      functionArray.unshift("I");
+    }
+      return functionArray.slice().join("");
+  }
+}
 
 
 
